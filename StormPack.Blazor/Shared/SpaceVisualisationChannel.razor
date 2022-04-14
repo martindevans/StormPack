@@ -1,0 +1,31 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using System.Drawing
+@using StormPack.Blazor.Core
+
+@inject NavigationManager NavManager
+@inject StateManager State
+
+<div style="display:flex; flex-direction:row;">
+    @foreach (var num in Channel.Bits)
+    {
+        <div style="flex: 1; height: 1em; background-color: @ColorFor(num)">
+        </div>
+    }
+</div>
+
+@code
+{
+    [Parameter]
+    [EditorRequired]
+    public Channel Channel { get; set; } = null!;
+
+    private string ColorFor(int num)
+    {
+        if (num < 0)
+            return "hsl(10,10%,10%)";
+
+        var h = (num * 47) % 360;
+        var s = 80 + (num * 43) % 20;
+        return $"hsl({h},{s}%,60%)";
+    }
+}

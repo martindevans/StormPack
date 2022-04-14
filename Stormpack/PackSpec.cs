@@ -7,13 +7,18 @@ public class PackSpec
     : IEnumerable<PackSpec.Number>
 {
     private readonly List<Number> _numbers = new();
-
+    public IEnumerable<Number> Numbers => _numbers;
 
     public void Add(Number number) => _numbers.Add(number);
 
-
     public PackResult Generate()
     {
+        foreach (var number in Numbers)
+        {
+            if (number.Max < number.Min)
+                throw new InvalidOperationException("Number `Max` must be > Number `Min`");
+        }
+
         // Calculate scale factors for numbers
         var scaling = new List<PackScaling>();
         for (var i = 0; i < _numbers.Count; i++)
@@ -96,9 +101,9 @@ public class PackSpec
 
     public class Number
     {
-        public double Min { get; }
-        public double Max { get; }
-        public double Precision { get; }
+        public double Min { get; set; }
+        public double Max { get; set; }
+        public double Precision { get; set; }
 
         public int Bits => (int)Math.Ceiling(Math.Log2((Max - Min) / Precision));
 
@@ -107,6 +112,11 @@ public class PackSpec
             Min = min;
             Max = max;
             Precision = precision;
+        }
+
+        public override string ToString()
+        {
+            return $"[{Min},{Max}]@{Precision}";
         }
     };
 }

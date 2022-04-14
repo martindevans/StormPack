@@ -1,0 +1,29 @@
+﻿@using StormPack.Blazor.Core
+
+@inject StateManager StateManager
+
+@if (StateManager.Error != null)
+{
+    <div class="card text-black bg-danger mb-3">
+        <div class="card-header">Error!</div>
+        <div class="card-body">
+            <p class="code-display card-text">@StateManager.Error</p>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card text-white bg-dark mb-3">
+        <div class="card-header">Lua</div>
+        <div class="card-body">
+            <p class="code-display card-text">@StateManager.Lua</p>
+        </div>
+    </div>
+}
+
+@code {
+    protected override void OnInitialized()
+    {
+        StateManager.OnStateChange += StateHasChanged;
+    }
+}

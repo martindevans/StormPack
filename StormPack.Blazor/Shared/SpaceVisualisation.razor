@@ -1,0 +1,31 @@
+﻿@using System.Text
+@using System.Globalization
+@using System.Collections.ObjectModel
+@using StormPack.Blazor.Core
+
+@inject StateManager StateManager
+
+<table class="table table-dark table-striped table-hover table-borderless">
+    <thead>
+    <tr>
+        <th style="text-align: center;">Channels</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var channel in StateManager.Channels)
+        {
+            <tr @key="@channel">
+                <td>
+                    <SpaceVisualisationChannel Channel=@channel/>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    protected override void OnInitialized()
+    {
+        StateManager.OnStateChange += StateHasChanged;
+    }
+}

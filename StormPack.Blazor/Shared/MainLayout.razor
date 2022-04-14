@@ -1,0 +1,76 @@
+﻿@using StormPack.Blazor.Core
+@inherits LayoutComponentBase
+@inject NavigationManager NavManager
+@inject StateManager StateManager
+
+<PageTitle>StormPack ☈</PageTitle>
+
+<div class="container-fluid">
+
+    <Navbar/>
+    
+    <div class="row">
+        <div class="col-md-12 my-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <SpaceVisualisation/>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <NumbersTable/>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <LuaDisplay/>
+    </div>
+    <div class="col-3"></div>
+</div>
+
+    <!-- <div class="row">
+        <div class="col"></div>
+        <div class="col col-md-auto">
+            <DebugControls/>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12 my-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col">
+            <CodeEditor/>
+        </div>
+        <div class="col">
+            <StateDisplay/>
+        </div>
+    </div> -->
+
+
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        //// Initialise state from URL
+        //var uri = new UriBuilder(NavManager.ToAbsoluteUri(NavManager.Uri));
+        //var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        //var state64 = query["state"];
+        //if (state64 != null)
+        //    StateManager.Load(SerializedState.Deserialize(state64));
+    }
+}

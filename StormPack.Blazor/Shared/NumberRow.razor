@@ -1,0 +1,61 @@
+﻿@using Stormpack
+@using StormPack.Blazor.Core
+
+@inject StateManager StateManager
+
+<tr>
+    <td>@Number.Bits</td>
+    <td>
+        <input @bind-value="@Min" @bind-value:event="oninput" contenteditable="True" />
+    </td>
+    <td>
+        <input @bind-value="@Max" @bind-value:event="oninput" contenteditable="True" />
+    </td>
+    <td>
+        <input @bind-value="@Precision" @bind-value:event="oninput" contenteditable="True" />
+    </td>
+    <td>
+        <button type="button" class="btn btn-danger"><span class="oi oi-x"></span></button>
+    </td>
+</tr>
+
+@code {
+    [Parameter]
+    [EditorRequired]
+    public PackSpec.Number Number { get; set; } = null!;
+
+    public double Min
+    {
+        get => Number.Min;
+        set
+        {
+            Number.Min = value;
+            StateManager.NotifyChanged();
+        }
+    }
+
+    public double Max
+    {
+        get => Number.Max;
+        set
+        {
+            Number.Max = value;
+            StateManager.NotifyChanged();
+        }
+    }
+
+    public double Precision
+    {
+        get => Number.Precision;
+        set
+        {
+            Number.Precision = value;
+            StateManager.NotifyChanged();
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        StateManager.OnStateChange += StateHasChanged;
+    }
+}

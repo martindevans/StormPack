@@ -1,0 +1,25 @@
+﻿@using StormPack.Blazor.Core
+
+@inject StateManager State
+
+<table class="table table-dark table-striped table-hover table-borderless">
+    <thead>
+    <tr>
+        <th>Bits</th>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Precision</th>
+        <th style="width:10%"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var number in State.Numbers)
+    {
+        <NumberRow Number=@number/>
+    }
+    </tbody>
+</table>
+
+@code {
+
+}
