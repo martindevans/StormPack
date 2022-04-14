@@ -66,11 +66,11 @@
 {
     protected override void OnInitialized()
     {
-        //// Initialise state from URL
-        //var uri = new UriBuilder(NavManager.ToAbsoluteUri(NavManager.Uri));
-        //var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
-        //var state64 = query["state"];
-        //if (state64 != null)
-        //    StateManager.Load(SerializedState.Deserialize(state64));
+        // Initialise state from URL
+        var uri = new UriBuilder(NavManager.ToAbsoluteUri(NavManager.Uri));
+        var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        var stateString = query["state"];
+        if (stateString != null)
+            StateManager.Load(stateString);
     }
 }

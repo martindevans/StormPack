@@ -1,13 +1,26 @@
-﻿using System.Collections;
-using System.Diagnostics;
+﻿using System.Diagnostics;
+using System.Text.Json.Serialization;
 
 namespace Stormpack;
 
 public class PackSpec
-    : IEnumerable<PackSpec.Number>
 {
     private readonly List<Number> _numbers = new();
-    public IEnumerable<Number> Numbers => _numbers;
+
+    [JsonPropertyName("numbers")]
+    public IReadOnlyList<Number> Numbers => _numbers;
+
+    public PackSpec(params Number[] numbers)
+        : this((IReadOnlyList<Number>)numbers)
+    {
+    }
+
+    [JsonConstructor]
+    public PackSpec(IReadOnlyList<Number> numbers)
+    {
+        foreach (var number in numbers)
+            Add(number);
+    }
 
     public void Add(Number number) => _numbers.Add(number);
 
@@ -100,17 +113,13 @@ public class PackSpec
     }
 
 
-    public IEnumerator<Number> GetEnumerator() => _numbers.GetEnumerator();
-
-    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-
-
     public class Number
     {
         public double Min { get; set; }
         public double Max { get; set; }
         public double Precision { get; set; }
 
+        [JsonIgnore]
         public int Bits => (int)Math.Ceiling(Math.Log2((Max - Min) / Precision));
 
         public Number(double min, double max, double precision)

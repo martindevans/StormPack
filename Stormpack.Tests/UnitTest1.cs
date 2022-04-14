@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Stormpack.ToLanguageExtensions;
 
@@ -12,8 +13,7 @@ public class UnitTest1
     [TestMethod]
     public void TestMethod1()
     {
-        var spec = new PackSpec
-        {
+        var spec = new PackSpec(
             // 8 bytes, no tearing
             new PackSpec.Number(min: 0,     max: 256,   precision: 1),
             new PackSpec.Number(min: 0,     max: 256,   precision: 1),
@@ -28,8 +28,8 @@ public class UnitTest1
             new PackSpec.Number(min: 0,     max: 2147483648, precision: 0.5),
 
             // Ludicrous precision (pad out the rest of this channel)
-            new PackSpec.Number(min: 0,     max: 1, precision: 0.000000000000004),
-        };
+            new PackSpec.Number(min: 0,     max: 1, precision: 0.000000000000004)
+        );
 
         var result = spec.Generate();
 
@@ -45,5 +45,31 @@ public class UnitTest1
         Console.WriteLine($"Unused Bits: {result.SpareBits}");
         Console.WriteLine();
         Console.WriteLine(result.ToLua());
+    }
+
+    [TestMethod]
+    public void TestMethod2()
+    {
+        var spec = new PackSpec(
+            // 8 bytes, no tearing
+            new PackSpec.Number(min: 0, max: 256, precision: 1),
+            new PackSpec.Number(min: 0, max: 256, precision: 1),
+            new PackSpec.Number(min: 0, max: 65536, precision: 1),
+            new PackSpec.Number(min: 0, max: 65536, precision: 1),
+            new PackSpec.Number(min: 0, max: 65536, precision: 1),
+
+            // 10 bytes, final value torn over 2 channels
+            new PackSpec.Number(min: 0, max: 65536, precision: 1),
+            new PackSpec.Number(min: 0, max: 65536, precision: 1),
+            new PackSpec.Number(min: 0, max: 65536, precision: 1),
+            new PackSpec.Number(min: 0, max: 2147483648, precision: 0.5),
+
+            // Ludicrous precision (pad out the rest of this channel)
+            new PackSpec.Number(min: 0, max: 1, precision: 0.000000000000004)
+        );
+
+        var json = JsonSerializer.Serialize(spec);
+
+        var spec2 = JsonSerializer.Deserialize<PackSpec>(json);
     }
 }

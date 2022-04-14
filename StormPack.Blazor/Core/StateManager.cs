@@ -1,4 +1,8 @@
-﻿using System.Collections;
+﻿using System.IO.Compression;
+using System.Net;
+using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Components;
 using Stormpack;
 using Stormpack.ToLanguageExtensions;
 
@@ -6,6 +10,21 @@ namespace StormPack.Blazor.Core
 {
     public class StateManager
     {
+        private static readonly PackSpec Default = new PackSpec(
+            new PackSpec.Number(min: 0,     max: 256,   precision: 1),
+            new PackSpec.Number(min: 0,     max: 256,   precision: 1),
+            new PackSpec.Number(min: 0,     max: 65536, precision: 1),
+            new PackSpec.Number(min: 0,     max: 65536, precision: 1),
+            new PackSpec.Number(min: 0,     max: 65536, precision: 1),
+            new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
+            new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
+            new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
+            new PackSpec.Number(min: 0,     max: 2147483648, precision: 0.5),
+            new PackSpec.Number(min: 0,     max: 1, precision: 0.0004)
+        );
+
+    private readonly NavigationManager _navManager;
+
         private PackSpec _spec;
         private PackResult _result;
 
@@ -37,37 +56,29 @@ namespace StormPack.Blazor.Core
 
         public event Action? OnStateChange;
 
-        public StateManager()
+        public StateManager(NavigationManager navManager)
         {
+            _navManager = navManager;
+
             _spec = new PackSpec();
             _result = _spec.Generate();
             Lua = "";
 
             // todo: temp set a spec
-            SetSpec(new PackSpec
-            {
-                // 8 bytes, no tearing
-                new PackSpec.Number(min: 0,     max: 256,   precision: 1),
-                new PackSpec.Number(min: 0,     max: 256,   precision: 1),
-                new PackSpec.Number(min: 0,     max: 65536, precision: 1),
-                new PackSpec.Number(min: 0,     max: 65536, precision: 1),
-                new PackSpec.Number(min: 0,     max: 65536, precision: 1),
-
-                // 10 bytes, final value torn over 2 channels
-                new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
-                new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
-                new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
-                new PackSpec.Number(min: 0,     max: 2147483648, precision: 0.5),
-
-                // Ludicrous precision (pad out the rest of this channel)
-                new PackSpec.Number(min: 0,     max: 1, precision: 0.0000000004),
-            });
+            SetSpec(Default);
         }
 
         public void SetSpec(PackSpec spec)
         {
             _spec = spec;
             NotifyChanged();
+        }
+
+        private void UpdateUrl()
+        {
+            var serialised = Serialize();
+            var uri = _navManager.GetUriWithQueryParameter("state", string.IsNullOrEmpty(serialised) ? null : serialised);
+            _navManager.NavigateTo(uri);
         }
 
         public void NotifyChanged()
@@ -83,7 +94,51 @@ namespace StormPack.Blazor.Core
                 Error = ex.Message;
             }
 
+            UpdateUrl();
             OnStateChange?.Invoke();
+        }
+
+        private static PackSpec Deserialize(string urlEncoded)
+        {
+            if (string.IsNullOrWhiteSpace(urlEncoded))
+                return Default;
+
+            var compressed = Convert.FromBase64String(WebUtility.UrlDecode(urlEncoded));
+            var bytes = Decompress(compressed);
+            var json = Encoding.UTF8.GetString(bytes);
+
+            return JsonSerializer.Deserialize<PackSpec>(json) ?? Default;
+
+            static byte[] Decompress(byte[] data)
+            {
+                var input = new MemoryStream(data);
+                var output = new MemoryStream();
+                using (var dstream = new DeflateStream(input, CompressionMode.Decompress))
+                    dstream.CopyTo(output);
+                return output.ToArray();
+            }
+        }
+
+        private string Serialize()
+        {
+            var utf8 = JsonSerializer.SerializeToUtf8Bytes(_spec);
+            var compressed = Compress(utf8);
+            return WebUtility.UrlEncode(Convert.ToBase64String(compressed));
+
+            static byte[] Compress(byte[] data)
+            {
+                var output = new MemoryStream();
+                using (var dstream = new DeflateStream(output, CompressionLevel.Optimal))
+                    dstream.Write(data, 0, data.Length);
+                return output.ToArray();
+            }
+        }
+
+        public void Load(string? stateString)
+        {
+            if (string.IsNullOrWhiteSpace(stateString))
+                return;
+            SetSpec(Deserialize(stateString));
         }
     }
 }
