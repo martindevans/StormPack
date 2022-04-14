@@ -15,8 +15,14 @@ public class PackSpec
     {
         foreach (var number in Numbers)
         {
-            if (number.Max < number.Min)
-                throw new InvalidOperationException("Number `Max` must be > Number `Min`");
+            if (number.Max <= number.Min)
+                throw new InvalidOperationException("Number `Max` must be > `Min`");
+            if (number.Precision > (number.Max - number.Min))
+                throw new InvalidOperationException("Number `Precision` must be < `Max - Min`");
+            if (number.Precision <= 0)
+                throw new InvalidOperationException("Number `Precision` must be > 0");
+            if (number.Bits <= 0)
+                throw new InvalidOperationException("Number `Bits` must be > 0");
         }
 
         // Calculate scale factors for numbers
