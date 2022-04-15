@@ -10,20 +10,14 @@ namespace StormPack.Blazor.Core
 {
     public class StateManager
     {
-        private static readonly PackSpec Default = new PackSpec(
-            new PackSpec.Number(min: 0,     max: 256,   precision: 1),
-            new PackSpec.Number(min: 0,     max: 256,   precision: 1),
-            new PackSpec.Number(min: 0,     max: 65536, precision: 1),
-            new PackSpec.Number(min: 0,     max: 65536, precision: 1),
-            new PackSpec.Number(min: 0,     max: 65536, precision: 1),
-            new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
-            new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
-            new PackSpec.Number(min: 0,     max: 65536,      precision: 1),
-            new PackSpec.Number(min: 0,     max: 2147483648, precision: 0.5),
-            new PackSpec.Number(min: 0,     max: 1, precision: 0.0004)
+        private static readonly PackSpec Default = new(
+            new PackSpec.Number(min: 0,     max: 256,       precision: 1),
+            new PackSpec.Number(min: 0,     max: 256,       precision: 0.5),
+            new PackSpec.Number(min: 0,     max: 32768,     precision: 1),
+            new PackSpec.Number(min: 0,     max: 474836483, precision: 0.1)
         );
 
-    private readonly NavigationManager _navManager;
+        private readonly NavigationManager _navManager;
 
         private PackSpec _spec;
         private PackResult _result;
@@ -63,8 +57,6 @@ namespace StormPack.Blazor.Core
             _spec = new PackSpec();
             _result = _spec.Generate();
             Lua = "";
-
-            // todo: temp set a spec
             SetSpec(Default);
         }
 
@@ -74,11 +66,10 @@ namespace StormPack.Blazor.Core
             NotifyChanged();
         }
 
-        private void UpdateUrl()
+        public void AddNumber()
         {
-            var serialised = Serialize();
-            var uri = _navManager.GetUriWithQueryParameter("state", string.IsNullOrEmpty(serialised) ? null : serialised);
-            _navManager.NavigateTo(uri);
+            _spec.Add(new PackSpec.Number(0, 256, 1));
+            NotifyChanged();
         }
 
         public void NotifyChanged()
@@ -96,6 +87,13 @@ namespace StormPack.Blazor.Core
 
             UpdateUrl();
             OnStateChange?.Invoke();
+        }
+
+        private void UpdateUrl()
+        {
+            var serialised = Serialize();
+            var uri = _navManager.GetUriWithQueryParameter("state", string.IsNullOrEmpty(serialised) ? null : serialised);
+            _navManager.NavigateTo(uri);
         }
 
         private static PackSpec Deserialize(string urlEncoded)
