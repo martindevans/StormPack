@@ -72,6 +72,12 @@ namespace StormPack.Blazor.Core
             NotifyChanged();
         }
 
+        public void Remove(PackSpec.Number number)
+        {
+            _spec.Remove(number);
+            NotifyChanged();
+        }
+
         public void NotifyChanged()
         {
             Error = null;

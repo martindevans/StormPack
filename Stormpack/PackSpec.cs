@@ -24,6 +24,11 @@ public class PackSpec
 
     public void Add(Number number) => _numbers.Add(number);
 
+    public bool Remove(Number number)
+    {
+        return _numbers.Remove(number);
+    }
+
     public PackResult Generate()
     {
         foreach (var number in Numbers)
@@ -115,8 +120,16 @@ public class PackSpec
 
     public class Number
     {
+        /// <summary>
+        /// Minimum possible value (inclusive)
+        /// </summary>
         public double Min { get; set; }
+
+        /// <summary>
+        /// Maximum possible value (exclusive)
+        /// </summary>
         public double Max { get; set; }
+
         public double Precision { get; set; }
 
         [JsonIgnore]

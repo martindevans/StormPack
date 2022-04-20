@@ -15,7 +15,7 @@
         <input @bind-value="@Precision" @bind-value:event="oninput" contenteditable="True" />
     </td>
     <td>
-        <button type="button" class="btn btn-danger"><span class="oi oi-x"></span></button>
+        <button type="button" class="btn btn-danger" @onclick="@RemoveNumber"><span class="oi oi-x"></span></button>
     </td>
 </tr>
 
@@ -36,10 +36,10 @@
 
     public double Max
     {
-        get => Number.Max;
+        get => Number.Max - 1;
         set
         {
-            Number.Max = value;
+            Number.Max = value + 1;
             StateManager.NotifyChanged();
         }
     }
@@ -52,6 +52,11 @@
             Number.Precision = value;
             StateManager.NotifyChanged();
         }
+    }
+
+    public void RemoveNumber()
+    {
+        StateManager.Remove(Number);
     }
 
     protected override void OnInitialized()

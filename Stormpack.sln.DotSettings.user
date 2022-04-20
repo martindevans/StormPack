@@ -14,5 +14,10 @@
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.TestMethod1&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.TestMethod2&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.Matrices&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.MatricesMul&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.MatricesYPR&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.MatricesTranslate&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::3318ACD8-B64A-451B-AA67-6DBEF6E57CA5::net6.0::Stormpack.Tests.UnitTest1.MatricesInvert&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

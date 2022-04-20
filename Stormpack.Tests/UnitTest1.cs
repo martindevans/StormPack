@@ -1,9 +1,8 @@
 using System;
+using System.Numerics;
 using System.Text.Json;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Stormpack.ToLanguageExtensions;
-
-using static System.Math;
 
 namespace Stormpack.Tests;
 
@@ -71,5 +70,67 @@ public class UnitTest1
         var json = JsonSerializer.Serialize(spec);
 
         var spec2 = JsonSerializer.Deserialize<PackSpec>(json);
+    }
+
+    [TestMethod]
+    public void MatricesYPR()
+    {
+        var m = Matrix4x4.CreateFromYawPitchRoll(Rads(45), 0, 0);
+        var p = new Vector3(100, 0, 0);
+        var r = Vector3.Transform(p, m);
+
+        Console.WriteLine(m);
+        Console.WriteLine(r);
+    }
+
+    [TestMethod]
+    public void MatricesMul()
+    {
+        var a = new Matrix4x4(
+            1, 2, 3, 0,
+            1, 2, 3, 0,
+            1, 2, 3, 0,
+            0, 0, 0, 0
+        );
+        var b = new Matrix4x4(
+            1, 0, 1, 0,
+            0, 2, 0, 2,
+            1, 0, 3, 0,
+            0, 2, 0, 4
+        );
+
+        var c = a * b;
+
+        Console.WriteLine(c);
+    }
+
+    [TestMethod]
+    public void MatricesTranslate()
+    {
+        var a = new Matrix4x4(
+            1, 2, 3, 0,
+            4, 5, 6, 0,
+            7, 8, 9, 0,
+            0, 0, 0, 1
+        );
+
+        a.Translation += new Vector3(11, 12, 13);
+
+        Console.WriteLine(a);
+    }
+
+    [TestMethod]
+    public void MatricesInvert()
+    {
+        var a = Matrix4x4.CreateFromYawPitchRoll(Rads(45), 0, 0);
+        var c = Matrix4x4.Invert(a, out var b);
+
+        Console.WriteLine(c);
+        Console.WriteLine(b);
+    }
+
+    public static float Rads(float angle)
+    {
+        return (float)((Math.PI / 180) * angle);
     }
 }
