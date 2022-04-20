@@ -121,6 +121,11 @@ public class PackSpec
     public class Number
     {
         /// <summary>
+        /// Name of this number
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// Minimum possible value (inclusive)
         /// </summary>
         public double Min { get; set; }
@@ -135,11 +140,12 @@ public class PackSpec
         [JsonIgnore]
         public int Bits => (int)Math.Ceiling(Math.Log2((Max - Min) / Precision));
 
-        public Number(double min, double max, double precision)
+        public Number(double min, double max, double precision, string? name = null)
         {
             Min = min;
             Max = max;
             Precision = precision;
+            Name = name ?? "";
         }
 
         public override string ToString()

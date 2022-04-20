@@ -11,10 +11,10 @@ namespace StormPack.Blazor.Core
     public class StateManager
     {
         private static readonly PackSpec Default = new(
-            new PackSpec.Number(min: 0,     max: 256,       precision: 1),
-            new PackSpec.Number(min: 0,     max: 256,       precision: 0.5),
-            new PackSpec.Number(min: 0,     max: 32768,     precision: 1),
-            new PackSpec.Number(min: 0,     max: 474836483, precision: 0.1)
+            new PackSpec.Number(min: 0,     max: 256,       precision: 1,   name: "Alpha"),
+            new PackSpec.Number(min: 0,     max: 256,       precision: 0.5, name: "Beta"),
+            new PackSpec.Number(min: 0,     max: 32768,     precision: 1,   name: "Gamma"),
+            new PackSpec.Number(min: 0,     max: 474836483, precision: 0.1, name: "Delta")
         );
 
         private readonly NavigationManager _navManager;

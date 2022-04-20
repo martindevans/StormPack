@@ -4,25 +4,28 @@
 @inject StateManager StateManager
 
 <tr>
+    <td><input @bind-value="@Name" @bind-value:event="oninput" contenteditable="True"/></td>
+    <td><input @bind-value="@Min" @bind-value:event="oninput" contenteditable="True"/></td>
+    <td><input @bind-value="@Max" @bind-value:event="oninput" contenteditable="True"/></td>
+    <td><input @bind-value="@Precision" @bind-value:event="oninput" contenteditable="True"/></td>
     <td>@Number.Bits</td>
-    <td>
-        <input @bind-value="@Min" @bind-value:event="oninput" contenteditable="True" />
-    </td>
-    <td>
-        <input @bind-value="@Max" @bind-value:event="oninput" contenteditable="True" />
-    </td>
-    <td>
-        <input @bind-value="@Precision" @bind-value:event="oninput" contenteditable="True" />
-    </td>
-    <td>
-        <button type="button" class="btn btn-danger" @onclick="@RemoveNumber"><span class="oi oi-x"></span></button>
-    </td>
+    <td><button type="button" class="btn btn-danger" @onclick="@RemoveNumber"><span class="oi oi-x"></span></button></td>
 </tr>
 
 @code {
     [Parameter]
     [EditorRequired]
     public PackSpec.Number Number { get; set; } = null!;
+
+    public string Name
+    {
+        get => Number.Name;
+        set
+        {
+            Number.Name = value;
+            StateManager.NotifyChanged();
+        }
+    }
 
     public double Min
     {
