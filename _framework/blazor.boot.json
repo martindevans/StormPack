@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Microsoft.AspNetCore.Components.dll": "sha256-t2EbgeJDZUZ6v\/6fSADjN8KY6SMikIrBB0u3CErq8KU=",
+      "Microsoft.AspNetCore.Components.dll": "sha256-LsrSzUOIvk3GyaqK5kHvHgUA3NIrt53v0r3cn7Ecom4=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-JrcahE7oAMMG1NZqgJfAQc1mtGDS9xAO6cDBWxDLgoY=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-Izlw\/SnIKXEmOa2P51s8rKqkVBfJ+MDvJMUpyP5lHkk=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-zhFtW4kE16TdrpPne9I1Cu9o0KYzrS50VE9MVSifJg4=",
@@ -21,8 +21,8 @@
       "Microsoft.Extensions.Primitives.dll": "sha256-YColTWA58whC+8aBjv1O7HgsyYrbHTba601EkNDWAlo=",
       "Microsoft.JSInterop.dll": "sha256-dTO1cE8J5cE6jSxWQMAs0lK2TlGwlvsnv3ilW6gkuz8=",
       "Microsoft.JSInterop.WebAssembly.dll": "sha256-vzwaIvFhA\/CHxhMcXKNUOu7C+zSrSm+hvDEmZhciN54=",
-      "StormPack.Blazor.dll": "sha256-b1yEDtRAItLjWtuNEMU5Lkv05+nL4\/NMj80XyJBQnDs=",
-      "Stormpack.dll": "sha256-IkW32qiFqkanzt4F98dOORui0lBx5\/DVYQSIB5DzL9E=",
+      "StormPack.Blazor.dll": "sha256-ACF0fv0uzc\/8zQnhhqTnv69Pj52FZ\/TNMhwmrJyvDTY=",
+      "Stormpack.dll": "sha256-sbcaE0Dkvs\/piPTulpTrdE+qg6HhJxHqnN4Bn6gAgtI=",
       "System.Collections.Concurrent.dll": "sha256-15YeOdQ5svkcl0ua8EGQ8GlgXBUCgaRcEFcpBG3RYdI=",
       "System.Collections.dll": "sha256-NK6+wfVCJn9vzitwPEGDSWS\/\/cDgyk2FdqwK61NMCAM=",
       "System.Collections.Specialized.dll": "sha256-pRDfvR6dbmRE63iT65Z\/aiG6JwAnvJLLaUswXhhEQXM=",
