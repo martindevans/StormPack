@@ -91,5 +91,334 @@ main[b-m14abz04cl] {
 }
 /* /Shared/NumbersTable.razor.rz.scp.css */
 [b-ys4j78lnjm] button {
-    width:100%
+    width: 100%
+}
+
+[b-ys4j78lnjm] .delete-row-header {
+    width: 5%
+}
+/* /Shared/SpaceVisualisationChannel.razor.rz.scp.css */
+.channel-bit-container[b-en8xfu0twh] {
+    display: flex;
+    flex-direction: row;
+}
+
+[b-en8xfu0twh] .channel-bit-empty {
+    background-color: #1c1817;
+    background-color: hsl(10,10%,10%);
+}
+
+.channel-bit-1[b-en8xfu0twh] {
+    flex: 1;
+    height: 1em;
+}
+
+.channel-bit-2[b-en8xfu0twh] {
+    flex: 2;
+    height: 1em;
+}
+
+.channel-bit-3[b-en8xfu0twh] {
+    flex: 3;
+    height: 1em;
+}
+
+.channel-bit-4[b-en8xfu0twh] {
+    flex: 4;
+    height: 1em;
+}
+
+.channel-bit-5[b-en8xfu0twh] {
+    flex: 5;
+    height: 1em;
+}
+
+.channel-bit-6[b-en8xfu0twh] {
+    flex: 6;
+    height: 1em;
+}
+
+.channel-bit-7[b-en8xfu0twh] {
+    flex: 7;
+    height: 1em;
+}
+
+.channel-bit-8[b-en8xfu0twh] {
+    flex: 8;
+    height: 1em;
+}
+
+.channel-bit-9[b-en8xfu0twh] {
+    flex: 9;
+    height: 1em;
+}
+
+.channel-bit-10[b-en8xfu0twh] {
+    flex: 10;
+    height: 1em;
+}
+
+.channel-bit-11[b-en8xfu0twh] {
+    flex: 11;
+    height: 1em;
+}
+
+.channel-bit-12[b-en8xfu0twh] {
+    flex: 12;
+    height: 1em;
+}
+
+.channel-bit-13[b-en8xfu0twh] {
+    flex: 13;
+    height: 1em;
+}
+
+.channel-bit-14[b-en8xfu0twh] {
+    flex: 14;
+    height: 1em;
+}
+
+.channel-bit-15[b-en8xfu0twh] {
+    flex: 15;
+    height: 1em;
+}
+
+.channel-bit-16[b-en8xfu0twh] {
+    flex: 16;
+    height: 1em;
+}
+
+.channel-bit-17[b-en8xfu0twh] {
+    flex: 17;
+    height: 1em;
+}
+
+.channel-bit-18[b-en8xfu0twh] {
+    flex: 18;
+    height: 1em;
+}
+
+.channel-bit-19[b-en8xfu0twh] {
+    flex: 19;
+    height: 1em;
+}
+
+.channel-bit-20[b-en8xfu0twh] {
+    flex: 20;
+    height: 1em;
+}
+
+.channel-bit-21[b-en8xfu0twh] {
+    flex: 21;
+    height: 1em;
+}
+
+.channel-bit-22[b-en8xfu0twh] {
+    flex: 22;
+    height: 1em;
+}
+
+.channel-bit-23[b-en8xfu0twh] {
+    flex: 23;
+    height: 1em;
+}
+
+.channel-bit-24[b-en8xfu0twh] {
+    flex: 24;
+    height: 1em;
+}
+
+.channel-bit-25[b-en8xfu0twh] {
+    flex: 25;
+    height: 1em;
+}
+
+.channel-bit-26[b-en8xfu0twh] {
+    flex: 26;
+    height: 1em;
+}
+
+.channel-bit-27[b-en8xfu0twh] {
+    flex: 27;
+    height: 1em;
+}
+
+.channel-bit-28[b-en8xfu0twh] {
+    flex: 28;
+    height: 1em;
+}
+
+.channel-bit-29[b-en8xfu0twh] {
+    flex: 29;
+    height: 1em;
+}
+
+.channel-bit-30[b-en8xfu0twh] {
+    flex: 30;
+    height: 1em;
+}
+
+.channel-bit-31[b-en8xfu0twh] {
+    flex: 31;
+    height: 1em;
+}
+
+.channel-bit-32[b-en8xfu0twh] {
+    flex: 32;
+    height: 1em;
+}
+
+.channel-bit-33[b-en8xfu0twh] {
+    flex: 33;
+    height: 1em;
+}
+
+.channel-bit-34[b-en8xfu0twh] {
+    flex: 34;
+    height: 1em;
+}
+
+.channel-bit-35[b-en8xfu0twh] {
+    flex: 35;
+    height: 1em;
+}
+
+.channel-bit-36[b-en8xfu0twh] {
+    flex: 36;
+    height: 1em;
+}
+
+.channel-bit-37[b-en8xfu0twh] {
+    flex: 37;
+    height: 1em;
+}
+
+.channel-bit-38[b-en8xfu0twh] {
+    flex: 38;
+    height: 1em;
+}
+
+.channel-bit-39[b-en8xfu0twh] {
+    flex: 39;
+    height: 1em;
+}
+
+.channel-bit-40[b-en8xfu0twh] {
+    flex: 40;
+    height: 1em;
+}
+
+.channel-bit-41[b-en8xfu0twh] {
+    flex: 41;
+    height: 1em;
+}
+
+.channel-bit-42[b-en8xfu0twh] {
+    flex: 42;
+    height: 1em;
+}
+
+.channel-bit-43[b-en8xfu0twh] {
+    flex: 43;
+    height: 1em;
+}
+
+.channel-bit-45[b-en8xfu0twh] {
+    flex: 45;
+    height: 1em;
+}
+
+.channel-bit-46[b-en8xfu0twh] {
+    flex: 46;
+    height: 1em;
+}
+
+.channel-bit-47[b-en8xfu0twh] {
+    flex: 47;
+    height: 1em;
+}
+
+.channel-bit-48[b-en8xfu0twh] {
+    flex: 48;
+    height: 1em;
+}
+
+.channel-bit-49[b-en8xfu0twh] {
+    flex: 49;
+    height: 1em;
+}
+
+.channel-bit-50[b-en8xfu0twh] {
+    flex: 50;
+    height: 1em;
+}
+
+.channel-bit-51[b-en8xfu0twh] {
+    flex: 51;
+    height: 1em;
+}
+
+.channel-bit-52[b-en8xfu0twh] {
+    flex: 52;
+    height: 1em;
+}
+
+.channel-bit-53[b-en8xfu0twh] {
+    flex: 53;
+    height: 1em;
+}
+
+.channel-bit-54[b-en8xfu0twh] {
+    flex: 54;
+    height: 1em;
+}
+
+.channel-bit-55[b-en8xfu0twh] {
+    flex: 55;
+    height: 1em;
+}
+
+.channel-bit-56[b-en8xfu0twh] {
+    flex: 56;
+    height: 1em;
+}
+
+.channel-bit-57[b-en8xfu0twh] {
+    flex: 57;
+    height: 1em;
+}
+
+.channel-bit-58[b-en8xfu0twh] {
+    flex: 58;
+    height: 1em;
+}
+
+.channel-bit-59[b-en8xfu0twh] {
+    flex: 59;
+    height: 1em;
+}
+
+.channel-bit-60[b-en8xfu0twh] {
+    flex: 60;
+    height: 1em;
+}
+
+.channel-bit-61[b-en8xfu0twh] {
+    flex: 61;
+    height: 1em;
+}
+
+.channel-bit-62[b-en8xfu0twh] {
+    flex: 62;
+    height: 1em;
+}
+
+.channel-bit-63[b-en8xfu0twh] {
+    flex: 63;
+    height: 1em;
+}
+
+.channel-bit-64[b-en8xfu0twh] {
+    flex: 64;
+    height: 1em;
 }
