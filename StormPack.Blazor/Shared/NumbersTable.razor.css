@@ -1,3 +1,7 @@
 ﻿::deep button {
-    width:100%
+    width: 100%
+}
+
+::deep .delete-row-header {
+    width: 5%
 }

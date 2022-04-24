@@ -9,6 +9,13 @@ namespace StormPack.Blazor.Core
         /// </summary>
         public IReadOnlyList<int> Bits { get; }
 
+        /// <summary>
+        /// Get the bit count of each fragment in this channel
+        /// </summary>
+        public IReadOnlyList<uint> Fragments { get; }
+
+        public int EmptyBits { get; }
+
         public Channel(PackChannel channel)
         {
             var bits = new int[64];
@@ -21,6 +28,9 @@ namespace StormPack.Blazor.Core
                     bits[bit--] = fragment.Index;
 
             Bits = bits;
+
+            Fragments = channel.Fragments.Select(a => (uint)a.BitCount).ToList();
+            EmptyBits = 64 - Fragments.Select(a => (int)a).Sum();
         }
     }
 }

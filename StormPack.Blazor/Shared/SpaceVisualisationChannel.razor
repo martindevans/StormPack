@@ -5,12 +5,13 @@
 @inject NavigationManager NavManager
 @inject StateManager State
 
-<div style="display:flex; flex-direction:row;">
-    @foreach (var num in Channel.Bits)
+<div class="channel-bit-container">
+    @foreach (var (frag, idx) in Channel.Fragments.Select((a, b) => (a, b)))
     {
-        <div style="flex: 1; height: 1em; background-color: @ColorFor(num)">
-        </div>
+        <div class="channel-bit-@frag" style="background-color: @ColorFor(idx)"></div>
     }
+
+    <div class="channel-bit-empty channel-bit-@Channel.EmptyBits"></div>
 </div>
 
 @code

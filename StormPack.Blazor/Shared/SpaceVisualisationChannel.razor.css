@@ -1,0 +1,324 @@
+﻿.channel-bit-container {
+    display: flex;
+    flex-direction: row;
+}
+
+::deep .channel-bit-empty {
+    background-color: #1c1817;
+    background-color: hsl(10,10%,10%);
+}
+
+.channel-bit-1 {
+    flex: 1;
+    height: 1em;
+}
+
+.channel-bit-2 {
+    flex: 2;
+    height: 1em;
+}
+
+.channel-bit-3 {
+    flex: 3;
+    height: 1em;
+}
+
+.channel-bit-4 {
+    flex: 4;
+    height: 1em;
+}
+
+.channel-bit-5 {
+    flex: 5;
+    height: 1em;
+}
+
+.channel-bit-6 {
+    flex: 6;
+    height: 1em;
+}
+
+.channel-bit-7 {
+    flex: 7;
+    height: 1em;
+}
+
+.channel-bit-8 {
+    flex: 8;
+    height: 1em;
+}
+
+.channel-bit-9 {
+    flex: 9;
+    height: 1em;
+}
+
+.channel-bit-10 {
+    flex: 10;
+    height: 1em;
+}
+
+.channel-bit-11 {
+    flex: 11;
+    height: 1em;
+}
+
+.channel-bit-12 {
+    flex: 12;
+    height: 1em;
+}
+
+.channel-bit-13 {
+    flex: 13;
+    height: 1em;
+}
+
+.channel-bit-14 {
+    flex: 14;
+    height: 1em;
+}
+
+.channel-bit-15 {
+    flex: 15;
+    height: 1em;
+}
+
+.channel-bit-16 {
+    flex: 16;
+    height: 1em;
+}
+
+.channel-bit-17 {
+    flex: 17;
+    height: 1em;
+}
+
+.channel-bit-18 {
+    flex: 18;
+    height: 1em;
+}
+
+.channel-bit-19 {
+    flex: 19;
+    height: 1em;
+}
+
+.channel-bit-20 {
+    flex: 20;
+    height: 1em;
+}
+
+.channel-bit-21 {
+    flex: 21;
+    height: 1em;
+}
+
+.channel-bit-22 {
+    flex: 22;
+    height: 1em;
+}
+
+.channel-bit-23 {
+    flex: 23;
+    height: 1em;
+}
+
+.channel-bit-24 {
+    flex: 24;
+    height: 1em;
+}
+
+.channel-bit-25 {
+    flex: 25;
+    height: 1em;
+}
+
+.channel-bit-26 {
+    flex: 26;
+    height: 1em;
+}
+
+.channel-bit-27 {
+    flex: 27;
+    height: 1em;
+}
+
+.channel-bit-28 {
+    flex: 28;
+    height: 1em;
+}
+
+.channel-bit-29 {
+    flex: 29;
+    height: 1em;
+}
+
+.channel-bit-30 {
+    flex: 30;
+    height: 1em;
+}
+
+.channel-bit-31 {
+    flex: 31;
+    height: 1em;
+}
+
+.channel-bit-32 {
+    flex: 32;
+    height: 1em;
+}
+
+.channel-bit-33 {
+    flex: 33;
+    height: 1em;
+}
+
+.channel-bit-34 {
+    flex: 34;
+    height: 1em;
+}
+
+.channel-bit-35 {
+    flex: 35;
+    height: 1em;
+}
+
+.channel-bit-36 {
+    flex: 36;
+    height: 1em;
+}
+
+.channel-bit-37 {
+    flex: 37;
+    height: 1em;
+}
+
+.channel-bit-38 {
+    flex: 38;
+    height: 1em;
+}
+
+.channel-bit-39 {
+    flex: 39;
+    height: 1em;
+}
+
+.channel-bit-40 {
+    flex: 40;
+    height: 1em;
+}
+
+.channel-bit-41 {
+    flex: 41;
+    height: 1em;
+}
+
+.channel-bit-42 {
+    flex: 42;
+    height: 1em;
+}
+
+.channel-bit-43 {
+    flex: 43;
+    height: 1em;
+}
+
+.channel-bit-45 {
+    flex: 45;
+    height: 1em;
+}
+
+.channel-bit-46 {
+    flex: 46;
+    height: 1em;
+}
+
+.channel-bit-47 {
+    flex: 47;
+    height: 1em;
+}
+
+.channel-bit-48 {
+    flex: 48;
+    height: 1em;
+}
+
+.channel-bit-49 {
+    flex: 49;
+    height: 1em;
+}
+
+.channel-bit-50 {
+    flex: 50;
+    height: 1em;
+}
+
+.channel-bit-51 {
+    flex: 51;
+    height: 1em;
+}
+
+.channel-bit-52 {
+    flex: 52;
+    height: 1em;
+}
+
+.channel-bit-53 {
+    flex: 53;
+    height: 1em;
+}
+
+.channel-bit-54 {
+    flex: 54;
+    height: 1em;
+}
+
+.channel-bit-55 {
+    flex: 55;
+    height: 1em;
+}
+
+.channel-bit-56 {
+    flex: 56;
+    height: 1em;
+}
+
+.channel-bit-57 {
+    flex: 57;
+    height: 1em;
+}
+
+.channel-bit-58 {
+    flex: 58;
+    height: 1em;
+}
+
+.channel-bit-59 {
+    flex: 59;
+    height: 1em;
+}
+
+.channel-bit-60 {
+    flex: 60;
+    height: 1em;
+}
+
+.channel-bit-61 {
+    flex: 61;
+    height: 1em;
+}
+
+.channel-bit-62 {
+    flex: 62;
+    height: 1em;
+}
+
+.channel-bit-63 {
+    flex: 63;
+    height: 1em;
+}
+
+.channel-bit-64 {
+    flex: 64;
+    height: 1em;
+}
